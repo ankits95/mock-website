@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Principal - Our School</title>
-    <link rel="stylesheet" href="styles.css">
+<?php $pageTitle = 'Principal - Our School'; ?>
+<!-- Including Header file -->
+<?php include 'header.php'; ?>
     <style>
         .principal-section {
             padding: 80px 20px;
@@ -202,38 +198,6 @@
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h5>About School</h5>
-                    <p>Committed to nurturing young minds and providing quality education.</p>
-                </div>
-                <div class="footer-section">
-                    <h5>Quick Links</h5>
-                    <ul>
-                        <li><a href="aboutschool.php">About Us</a></li>
-                        <li><a href="vision.php">Vision & Mission</a></li>
-                        <li><a href="principal.php">Principal</a></li>
-                        <li><a href="contact.php">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h5>Follow Us</h5>
-                    <div class="social-links">
-                        <a href="#">Facebook</a>
-                        <a href="#">Twitter</a>
-                        <a href="#">Instagram</a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Our School. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+    </main>
 
-    <script src="script.js"></script>
-</body>
-</html>
+<?php include 'footer.php'; ?>
