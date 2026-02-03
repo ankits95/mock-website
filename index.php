@@ -1,3 +1,9 @@
+<!-- Including Database connection file  -->
+
+<?php include 'db.php'; ?>
+
+<!-- Including Page Title  -->
+
 <?php $pageTitle = 'Home - Our School'; ?>
 
 <!-- Including Header file -->
@@ -12,6 +18,38 @@
                 <a href="#admissions" class="cta-button">Apply Now</a>
             </div>
         </section>
+                <!-- Notice Section -->
+        <section class="notices">
+            <div class="container">
+                <h2>Latest Notices</h2>
+
+                <?php
+                $sql = "SELECT * FROM notices ORDER BY notice_date DESC LIMIT 5";
+                $result = mysqli_query($conn, $sql);
+
+                if ($result && mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                ?>
+                    <div class="notice-item">
+                        <h4><?php echo htmlspecialchars($row['title']); ?></h4>
+                        <small><?php echo $row['notice_date']; ?></small>
+                        <p>
+                            <?php echo substr(htmlspecialchars($row['description']), 0, 100); ?>...
+                        </p>
+                        <a href="notice_detail.php?id=<?php echo $row['id']; ?>">
+                            Read More
+                        </a>
+                    </div>
+                    <hr>
+                <?php
+                    }
+                } else {
+                    echo "<p>No notices available.</p>";
+                }
+                ?>
+            </div>
+        </section>
+
 
         <!-- About Us Section -->
         <section id="about" class="about">
