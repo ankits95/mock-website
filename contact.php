@@ -1,5 +1,10 @@
-<?php $pageTitle = 'Contact Us - Our School'; ?>
-<?php include 'header.php'; ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Our School</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
         .contact-hero {
             padding: 80px 20px;
@@ -82,25 +87,10 @@
     </style>
 </head>
 <body>
-    <!-- Navigation Header -->
-    <header class="navbar">
-        <div class="container">
-            <div class="logo">
-                <h1>OUR SCHOOL</h1>
-            </div>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="aboutschool.php">About</a></li>
-                    <li><a href="academics.php">Academics</a></li>
-                    <li><a href="admissions.php">Admissions</a></li>
-                    <li><a href="contact.php">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+<main>
 
-    <main>
+<?php include 'header.php'; ?>
+
         <!-- Hero Section -->
         <section class="hero">
             <div class="hero-content">

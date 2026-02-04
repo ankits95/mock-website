@@ -1,10 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Our School</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main>
+
 <!-- Including Database connection file  -->
 
 <?php include 'db.php'; ?>
-
-<!-- Including Page Title  -->
-
-<?php $pageTitle = 'Home - Our School'; ?>
 
 <!-- Including Header file -->
 <?php include 'header.php'; ?>
@@ -22,7 +29,7 @@
         <section class="notices">
             <div class="container">
                 <h2>Latest Notices</h2>
-
+                <div class="notices-grid">
                 <?php
                 $sql = "SELECT * FROM notices ORDER BY notice_date DESC LIMIT 5";
                 $result = mysqli_query($conn, $sql);
@@ -32,21 +39,21 @@
                 ?>
                     <div class="notice-item">
                         <h4><?php echo htmlspecialchars($row['title']); ?></h4>
-                        <small><?php echo $row['notice_date']; ?></small>
+                        <span class="notice-date"><?php echo date('d M, Y', strtotime($row['notice_date'])); ?></span>
                         <p>
-                            <?php echo substr(htmlspecialchars($row['description']), 0, 100); ?>...
+                            <?php echo substr(htmlspecialchars($row['description']), 0, 150); ?>...
                         </p>
                         <a href="notice_detail.php?id=<?php echo $row['id']; ?>">
-                            Read More
+                            Read More →
                         </a>
                     </div>
-                    <hr>
                 <?php
                     }
                 } else {
-                    echo "<p>No notices available.</p>";
+                    echo "<p style='text-align: center; padding: 2rem; color: #666;'>No notices available.</p>";
                 }
                 ?>
+                </div>
             </div>
         </section>
 
