@@ -102,15 +102,22 @@ if (!isset($_SESSION['admin_id'])) {
             <a href="add_notice.php">➕ Add Notice</a>
         </div>
 
+        <div class="card logout">
+            <h3>View Admissions</h3>
+            <a href="view_admissions.php">👁️ View Admissions</a>
+        </div>
+
         <div class="card">
             <h3>View Notices</h3>
             <a href="view_notice.php">📄 View Notices</a>
         </div>
+        
 
         <div class="card logout">
             <h3>Logout</h3>
             <a href="logout.php">🚪 Logout</a>
         </div>
+        
     </div>
 </div>
 
