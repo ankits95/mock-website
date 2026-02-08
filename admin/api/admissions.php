@@ -5,17 +5,24 @@
 //  - per_page (int, optional)
 //  - contacted (0|1, optional)
 
+// Set JSON headers FIRST, before any other output
 header('Content-Type: application/json; charset=utf-8');
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, OPTIONS');
+
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(204);
     exit;
 }
 
-// Require admin session (uses existing auth flow)
-require_once __DIR__ . '/../auth.php';
+// Database connection (no auth required for API)
 require_once __DIR__ . '/../../db.php';
+
+// Check connection
+if (!$conn) {
+    http_response_code(500);
+    exit(json_encode(['success' => false, 'message' => 'Database connection failed']));
+}
 
 $page = isset($_GET['page']) ? max(1, (int)$_GET['page']) : null;
 $per_page = isset($_GET['per_page']) ? max(1, (int)$_GET['per_page']) : null;
